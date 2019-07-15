@@ -10,14 +10,16 @@ internal class RockPaperScissorsSpekTest : Spek({
         val rockPaperScissors by memoized {
             RockPaperScissors()
         }
+
+
         context("When Player One Playing Rock") {
             beforeEach {
-                rockPaperScissors.addEvent(Player.ONE, Move.ROCK)
+                rockPaperScissors.addMove(Player.ONE, Move.ROCK)
             }
 
             context("When Player Two Playing Paper") {
                 beforeEachTest {
-                    rockPaperScissors.addEvent(Player.TWO, Move.PAPER)
+                    rockPaperScissors.addMove(Player.TWO, Move.PAPER)
                 }
 
                 it(description = "Declare Player Two Win") {
@@ -25,6 +27,60 @@ internal class RockPaperScissorsSpekTest : Spek({
                         rockPaperScissors.getWinner()
                     ).isEqualTo(
                         Player.TWO
+                    )
+                }
+            }
+
+            context("When Player two playing scissors") {
+                beforeEachTest {
+                    rockPaperScissors.addMove(Player.TWO, Move.SCISSORS)
+                }
+
+                it(description = "Declare Player One Win") {
+                    Assertions.assertThat(
+                        rockPaperScissors.getWinner()
+                    ).isEqualTo(
+                        Player.ONE
+                    )
+                }
+            }
+        }
+
+        context("When Player One Playing Paper"){
+            beforeEach {
+                rockPaperScissors.addMove(Player.ONE, Move.PAPER)
+            }
+
+            context("When Player Two Playing Rock") {
+                beforeEachTest {
+                    rockPaperScissors.addMove(Player.TWO, Move.ROCK)
+                }
+
+                it(description = "Declare Player One Win") {
+                    Assertions.assertThat(
+                        rockPaperScissors.getWinner()
+                    ).isEqualTo(
+                        Player.ONE
+                    )
+                }
+            }
+        }
+
+        context("When Player One Playing Paper"){
+            beforeEach {
+                rockPaperScissors.addMove(Player.ONE, Move.PAPER)
+            }
+
+            context("When Player Two Playing Rock") {
+                beforeEachTest {
+                    rockPaperScissors.addMove(Player.TWO, Move.ROCK)
+                }
+
+                it(description = "Declare Player One Win") {
+                    Assertions.assertThat(
+                        rockPaperScissors.getWinner()
+                    ).isEqualTo(
+                        Player.ONE
                     )
                 }
             }

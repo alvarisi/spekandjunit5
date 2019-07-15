@@ -6,7 +6,7 @@ class RockPaperScissors {
         Player.TWO to Move.UNDEFINED
     )
 
-    fun addEvent(player: Player, move: Move) {
+    fun addMove(player: Player, move: Move) {
         players[player] = move
     }
 
