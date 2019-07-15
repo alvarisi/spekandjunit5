@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             android:padding="16dp"
+                                             tools:context=".LoginActivity">
+
+
+    <android.support.v7.widget.AppCompatEditText
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/inputEmail"
+            android:inputType="textEmailAddress"
+            android:hint="Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <android.support.v7.widget.AppCompatEditText
+            android:hint="Password"
+            app:layout_constraintTop_toBottomOf="@+id/inputEmail"
+            android:id="@+id/inputPassword"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <android.support.v7.widget.AppCompatButton
+            android:id="@+id/buttonLogin"
+            app:layout_constraintTop_toBottomOf="@+id/inputPassword"
+            android:text="Login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+</android.support.constraint.ConstraintLayout>
