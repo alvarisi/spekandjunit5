@@ -1,6 +1,8 @@
 package com.alvarisi.unittestpresentation.calculator
 
 class Calculator {
+    constructor(){
+    }
     fun add(x: Int, y: Int) = x + y
     fun subtract(x: Int, y: Int) = x - y
     fun divide(x: Int, y: Int): Int {
