@@ -14,26 +14,54 @@ class RockPaperScissorsJunitTest {
         inner class PlayerOnePlayingRock {
             @BeforeEach
             fun `set up player one move rock`() {
-                println("Set up player one")
                 rockPaperScissors.addMove(Player.ONE, Move.ROCK)
             }
 
             @Nested
-            @DisplayName("When player Two Playing Paper")
+            @DisplayName("When Player Two Playing Scissors")
+            inner class PlayerTwoPlayingScissors{
+                @BeforeEach
+                fun `set up player two move scissors`(){
+                    rockPaperScissors.addMove(Player.TWO, Move.SCISSORS)
+                }
+
+                @Test
+                fun `Declare player One win`() {
+                    Assertions.assertThat(rockPaperScissors.getWinner())
+                        .isEqualTo(Player.ONE)
+                }
+            }
+
+            @Nested
+            @DisplayName("When Player Two Playing Paper")
             inner class PlayerTwoPlayingPapper {
                 @BeforeEach
                 fun `set up player two move papper`() {
-                    println("Set up player two")
                     rockPaperScissors.addMove(Player.TWO, Move.PAPER)
                 }
 
                 @Test
                 fun `Declare player two win`() {
-                    println("The test")
                     Assertions.assertThat(rockPaperScissors.getWinner())
                         .isEqualTo(Player.TWO)
                 }
             }
+
+            @Nested
+            @DisplayName("When Player Two Playing Rock ")
+            inner class PlayerTwoPlayingRock {
+                @BeforeEach
+                fun `set up player two move rock`() {
+                    rockPaperScissors.addMove(Player.TWO, Move.ROCK)
+                }
+
+                @Test
+                fun `Declare no one wins`() {
+                    Assertions.assertThat(rockPaperScissors.getWinner())
+                        .isEqualTo(Player.UNKNOWN)
+                }
+            }
+
         }
     }
 }

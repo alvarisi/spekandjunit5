@@ -1,6 +1,5 @@
 package com.alvarisi.unittestpresentation.rockpaperscissor
 
-import com.annimon.stream.Stream
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.params.ParameterizedTest
@@ -11,13 +10,12 @@ import java.util.*
 class RockPaperScissorsJunitParameterizedTest {
     private val rockPaperScissors: RockPaperScissors = RockPaperScissors()
 
-
     private fun testCases() = Arrays.stream(
         arrayOf(
-            PlayingEvent(Move.ROCK, Move.SCISSORS, Player.ONE)
+            PlayingEvent(Move.ROCK, Move.SCISSORS, Player.ONE),
+            PlayingEvent(Move.ROCK, Move.PAPER, Player.TWO)
         )
     )
-
 
     @ParameterizedTest
     @MethodSource("testCases")

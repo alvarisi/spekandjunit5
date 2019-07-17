@@ -122,5 +122,32 @@ internal class RockPaperScissorsSpekTest : Spek({
                 }
             }
         }
+
+        context("When Player One Playing Scissors"){
+            beforeEach {
+                rockPaperScissors.addMove(Player.ONE, Move.SCISSORS)
+            }
+
+            context("And Player Two Playing Paper"){
+                beforeEach {
+                    rockPaperScissors.addMove(Player.TWO, Move.PAPER)
+                }
+
+                it("Declare Player One Win"){
+                    Assertions.assertThat(
+                        rockPaperScissors.getWinner()
+                    ).isEqualTo(
+                        Player.ONE
+                    )
+                }
+            }
+
+            xcontext("And Player Two Playing Rock", "API doesnt ready yet"){
+
+            }
+            xcontext("And Player Two Playing Scissors"){
+
+            }
+        }
     }
 })
