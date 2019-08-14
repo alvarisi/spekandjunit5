@@ -12,9 +12,6 @@ class OrderSpekTest : Spek({
         beforeEachTest {
             println("B")
         }
-        beforeEach {
-            println("C")
-        }
         it("some test"){
             println("D")
         }
@@ -24,6 +21,9 @@ class OrderSpekTest : Spek({
         afterEachTest {
             println("F")
         }
+    }
+    describe("another"){
+
     }
 
     afterGroup {
